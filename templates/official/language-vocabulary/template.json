@@ -1,0 +1,228 @@
+{
+  "id": "official/language-vocabulary",
+  "version": "1.0.0",
+  "title": "Słownictwo językowe",
+  "description": "Słownictwo angielskie na poziomie B2 dla osób mówiących po polsku: praca, phrasal verbs, fałszywi przyjaciele i kolokacje. Zastąp lub uzupełnij tematy własnym słownictwem z innego języka.",
+  "locale": "pl",
+  "tags": [
+    "angielski",
+    "słownictwo",
+    "B2",
+    "języki"
+  ],
+  "workspace": {
+    "schemaVersion": 1,
+    "goal": "Poszerzyć słownictwo angielskie na poziomie B2 i używać go w mowie i piśmie.",
+    "theme": "core/default",
+    "pattern": "core/active-recall",
+    "scheduler": {
+      "block": "core/fsrs",
+      "dailyLimit": 30,
+      "desiredRetention": 0.9
+    },
+    "exercises": [
+      {
+        "block": "core/flashcard",
+        "weight": 0.5
+      },
+      {
+        "block": "core/cloze",
+        "weight": 0.35
+      },
+      {
+        "block": "core/short-answer",
+        "weight": 0.15
+      }
+    ],
+    "reminders": {
+      "enabled": true,
+      "preferredHour": 8
+    }
+  },
+  "requires": [
+    {
+      "block": "core/default",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/active-recall",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/fsrs",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/flashcard",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/cloze",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/short-answer",
+      "version": "^1.0.0"
+    }
+  ],
+  "starter": {
+    "topics": [
+      {
+        "title": "Praca i kariera",
+        "description": "Słownictwo przydatne w pracy, rekrutacji i rozmowach o karierze.",
+        "items": [
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "awans (w pracy)",
+              "back": "promotion — *She got a promotion last year.*"
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "termin ostateczny (np. oddania projektu)",
+              "back": "deadline — *We can't miss the deadline.*"
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "I'm going to {{gap}} for the senior developer position. (złożyć podanie, ubiegać się)",
+              "answers": [
+                "apply"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "pensja (stała, zwykle miesięczna lub roczna)",
+              "back": "salary (*wages* — zwykle wynagrodzenie godzinowe lub tygodniowe)"
+            }
+          }
+        ]
+      },
+      {
+        "title": "Phrasal verbs",
+        "description": "Najczęstsze czasowniki złożone z partykułą.",
+        "items": [
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "We had to {{gap}} the meeting until next week. (przełożyć)",
+              "answers": [
+                "put off",
+                "postpone",
+                "push back"
+              ]
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Can you {{gap}} the kids from school today? (odebrać)",
+              "answers": [
+                "pick up"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "give up",
+              "back": "poddać się; rzucić (np. nałóg) — *I gave up smoking.*"
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Wyjaśnij różnicę między „look for” a „look after” i podaj przykład zdania z każdym.",
+              "referenceAnswer": "„look for” = szukać (*I'm looking for my keys.*); „look after” = opiekować się, doglądać (*She looks after her younger brother.*).",
+              "rubric": "Pełna ocena: poprawne znaczenia obu i po jednym poprawnym zdaniu."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Fałszywi przyjaciele",
+        "description": "Angielskie słowa podobne do polskich, ale o innym znaczeniu.",
+        "items": [
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "actually",
+              "back": "właściwie, w rzeczywistości (NIE „aktualnie” — to *currently*)"
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "eventually",
+              "back": "ostatecznie, w końcu (NIE „ewentualnie” — to *possibly*, *if necessary*)"
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "The {{gap}} government plans to raise taxes. (obecny, aktualny)",
+              "answers": [
+                "current",
+                "present"
+              ]
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Co oznacza angielskie słowo „sympathetic” i czym różni się od polskiego „sympatyczny”?",
+              "referenceAnswer": "„sympathetic” = współczujący, wyrozumiały, okazujący zrozumienie dla czyichś problemów (*She was very sympathetic when I was ill.*). Polskie „sympatyczny” to po angielsku *nice*, *friendly* lub *likeable*.",
+              "rubric": "Kluczowe: współczujący ≠ miły; podanie angielskiego odpowiednika „sympatyczny”."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Kolokacje",
+        "description": "Typowe połączenia wyrazów, których nie tłumaczy się dosłownie.",
+        "items": [
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Before choosing a supplier, we need to {{gap}} a decision. (podjąć decyzję)",
+              "answers": [
+                "make",
+                "take"
+              ]
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "It's important to {{gap}} attention to details in this job. (zwracać uwagę)",
+              "answers": [
+                "pay"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "robić postępy",
+              "back": "make progress (NIE *do progress*)"
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Kiedy w kolokacjach używamy „do”, a kiedy „make”? Podaj po dwa przykłady.",
+              "referenceAnswer": "„do” zwykle przy czynnościach, pracy i obowiązkach (*do homework*, *do the dishes*, *do business*, *do someone a favour*). „make” przy tworzeniu, wytwarzaniu lub wywoływaniu rezultatu (*make a decision*, *make a mistake*, *make money*, *make a cake*). Reguła nie jest ścisła — kolokacji trzeba uczyć się w całości.",
+              "rubric": "Pełna ocena: ogólna zasada (czynność vs. wytwór/rezultat) i po dwa poprawne przykłady."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "trust": "official"
+}

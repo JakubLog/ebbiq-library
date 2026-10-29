@@ -1,0 +1,234 @@
+{
+  "id": "official/docs-concepts",
+  "version": "1.0.0",
+  "title": "Pojęcia z dokumentacji",
+  "description": "Kluczowe pojęcia z dokumentacji technicznej: HTTP, REST i Git. Dobry punkt startu do nauki pojęć z dowolnej dokumentacji — dodawaj własne tematy z linkiem do źródła.",
+  "locale": "pl",
+  "tags": [
+    "http",
+    "rest",
+    "git",
+    "dokumentacja"
+  ],
+  "workspace": {
+    "schemaVersion": 1,
+    "goal": "Rozumieć i umieć wyjaśnić kluczowe pojęcia z dokumentacji technicznej (HTTP, REST, Git).",
+    "theme": "core/default",
+    "pattern": "core/active-recall",
+    "scheduler": {
+      "block": "core/fsrs",
+      "dailyLimit": 15,
+      "desiredRetention": 0.9
+    },
+    "exercises": [
+      {
+        "block": "core/flashcard",
+        "weight": 0.35
+      },
+      {
+        "block": "core/cloze",
+        "weight": 0.3
+      },
+      {
+        "block": "core/short-answer",
+        "weight": 0.35
+      }
+    ],
+    "reminders": {
+      "enabled": true,
+      "preferredHour": 19
+    }
+  },
+  "requires": [
+    {
+      "block": "core/default",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/active-recall",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/fsrs",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/flashcard",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/cloze",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/short-answer",
+      "version": "^1.0.0"
+    }
+  ],
+  "starter": {
+    "topics": [
+      {
+        "title": "HTTP: metody i kody odpowiedzi",
+        "description": "Znaczenie metod HTTP i najważniejszych kodów statusu.",
+        "sourceRef": "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+        "items": [
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Kod odpowiedzi HTTP {{gap}} oznacza, że serwer nie znalazł żądanego zasobu.",
+              "answers": [
+                "404"
+              ]
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Metoda HTTP {{gap}} służy do częściowej modyfikacji zasobu.",
+              "answers": [
+                "PATCH"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Czym różnią się kody 401 i 403?",
+              "back": "401 Unauthorized — brak poprawnego uwierzytelnienia (serwer nie wie, kim jesteś). 403 Forbidden — serwer wie, kim jesteś, ale nie masz uprawnień do zasobu."
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Co oznaczają kody z grupy 5xx?",
+              "back": "Błąd po stronie serwera, np. 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable."
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Co oznacza, że metoda HTTP jest idempotentna? Podaj przykłady metod idempotentnych i jednej nieidempotentnej.",
+              "referenceAnswer": "Wielokrotne wysłanie identycznego żądania daje na serwerze taki sam efekt jak wysłanie go raz. Idempotentne są m.in. GET, HEAD, PUT, DELETE (oraz OPTIONS). POST nie jest idempotentny — np. każde wywołanie może utworzyć nowy zasób.",
+              "rubric": "Pełna ocena: definicja (ten sam efekt przy powtórzeniu), co najmniej dwie metody idempotentne i POST jako nieidempotentna."
+            }
+          }
+        ]
+      },
+      {
+        "title": "REST",
+        "description": "Zasady projektowania API w stylu REST.",
+        "sourceRef": "https://developer.mozilla.org/en-US/docs/Glossary/REST",
+        "items": [
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Co oznacza bezstanowość (statelessness) w REST?",
+              "back": "Każde żądanie zawiera wszystkie informacje potrzebne do jego obsłużenia; serwer nie przechowuje stanu sesji klienta między żądaniami."
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "W REST każdy zasób ma unikalny identyfikator — {{gap}}, np. `/orders/42`.",
+              "answers": [
+                "URI",
+                "URL",
+                "adres URI",
+                "adres URL"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Jaki nagłówek HTTP określa format treści żądania lub odpowiedzi?",
+              "back": "`Content-Type` (np. `application/json`). Klient deklaruje oczekiwany format odpowiedzi nagłówkiem `Accept`."
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Zaprojektuj endpointy REST do pobrania listy zamówień, pobrania jednego zamówienia i usunięcia zamówienia.",
+              "referenceAnswer": "`GET /orders` — lista zamówień; `GET /orders/{id}` — jedno zamówienie; `DELETE /orders/{id}` — usunięcie zamówienia. W ścieżce rzeczownik w liczbie mnogiej, a operację wyraża metoda HTTP (bez czasowników typu `/getOrders`).",
+              "rubric": "Pełna ocena: poprawne metody i ścieżki dla trzech operacji; plus za uzasadnienie (zasób w ścieżce, akcja w metodzie)."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Git: podstawy",
+        "description": "Katalog roboczy, staging area i commity.",
+        "sourceRef": "https://git-scm.com/docs",
+        "items": [
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Polecenie `git {{gap}} plik.txt` dodaje zmiany w pliku do przechowalni (staging area).",
+              "answers": [
+                "add"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Czym jest staging area (index) w Git?",
+              "back": "Obszar pośredni między katalogiem roboczym a repozytorium: zawiera zmiany przygotowane poleceniem `git add` do następnego commita."
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "`git commit {{gap}} \"Fix login bug\"` tworzy commit z podanym opisem.",
+              "answers": [
+                "-m",
+                "--message"
+              ]
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Czym różni się `git fetch` od `git pull`?",
+              "referenceAnswer": "`git fetch` pobiera nowe commity i gałęzie ze zdalnego repozytorium i aktualizuje gałęzie zdalne (np. `origin/main`), ale nie zmienia lokalnych gałęzi ani katalogu roboczego. `git pull` to `git fetch` plus włączenie zmian do bieżącej gałęzi (domyślnie merge, opcjonalnie rebase).",
+              "rubric": "Kluczowe: fetch nie zmienia bieżącej gałęzi; pull = fetch + merge/rebase."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Git: gałęzie i historia",
+        "description": "Tworzenie gałęzi, scalanie i cofanie zmian.",
+        "sourceRef": "https://git-scm.com/docs",
+        "items": [
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "`git switch {{gap}} feature/login` tworzy nową gałąź i od razu się na nią przełącza.",
+              "answers": [
+                "-c",
+                "--create"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Czym różni się `git merge` od `git rebase`?",
+              "back": "`merge` łączy historie gałęzi, zwykle tworząc commit scalający i zachowując oryginalne commity. `rebase` przenosi commity bieżącej gałęzi na nową bazę, dając liniową historię, ale zmienia ich hashe — nie rób rebase commitów już współdzielonych z innymi."
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Kiedy użyć `git revert`, a kiedy `git reset`?",
+              "referenceAnswer": "`git revert` tworzy nowy commit odwracający zmiany wskazanego commita — bezpieczny dla historii już wypchniętej i współdzielonej. `git reset` przesuwa bieżącą gałąź (HEAD) na wcześniejszy commit, przepisując historię (`--soft`, `--mixed`, `--hard` decydują, co dzieje się z indeksem i katalogiem roboczym) — stosuj go lokalnie, dla commitów jeszcze niewypchniętych.",
+              "rubric": "Pełna ocena: revert = nowy commit, bezpieczny dla współdzielonej historii; reset = przepisanie historii, tylko lokalnie."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "trust": "official"
+}

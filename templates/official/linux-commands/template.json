@@ -1,0 +1,250 @@
+{
+  "id": "official/linux-commands",
+  "version": "1.0.0",
+  "title": "Komendy Linuksa",
+  "description": "Podstawowe komendy terminala Linuksa: poruszanie się po plikach, uprawnienia, procesy i wyszukiwanie tekstu. Dla osób, które zaczynają pracę z wierszem poleceń lub chcą utrwalić podstawy.",
+  "locale": "pl",
+  "tags": [
+    "linux",
+    "terminal",
+    "bash",
+    "devops"
+  ],
+  "workspace": {
+    "schemaVersion": 1,
+    "goal": "Swobodnie posługiwać się podstawowymi komendami Linuksa w terminalu.",
+    "theme": "core/default",
+    "pattern": "core/active-recall",
+    "scheduler": {
+      "block": "core/fsrs",
+      "dailyLimit": 20,
+      "desiredRetention": 0.9
+    },
+    "exercises": [
+      {
+        "block": "core/flashcard",
+        "weight": 0.35
+      },
+      {
+        "block": "core/cloze",
+        "weight": 0.45
+      },
+      {
+        "block": "core/short-answer",
+        "weight": 0.2
+      }
+    ],
+    "reminders": {
+      "enabled": true,
+      "preferredHour": 19
+    }
+  },
+  "requires": [
+    {
+      "block": "core/default",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/active-recall",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/fsrs",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/flashcard",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/cloze",
+      "version": "^1.0.0"
+    },
+    {
+      "block": "core/short-answer",
+      "version": "^1.0.0"
+    }
+  ],
+  "starter": {
+    "topics": [
+      {
+        "title": "Nawigacja i pliki",
+        "description": "Poruszanie się po systemie plików, listowanie i tworzenie katalogów.",
+        "sourceRef": "man 1 ls, man 1 cd, man 1 mkdir",
+        "items": [
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Jak wyświetlić ścieżkę bieżącego katalogu roboczego?",
+              "back": "`pwd` (print working directory)."
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Polecenie `{{gap}} -la` wyświetla wszystkie pliki w katalogu, łącznie z ukrytymi, w formacie długim.",
+              "answers": [
+                "ls"
+              ]
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "`cd {{gap}}` przenosi do katalogu domowego bieżącego użytkownika.",
+              "answers": [
+                "~",
+                "$HOME"
+              ],
+              "hint": "Skrót oznaczający katalog domowy."
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Jak utworzyć katalog `a/b/c` razem z brakującymi katalogami nadrzędnymi?",
+              "back": "`mkdir -p a/b/c`"
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Czym różni się ścieżka bezwzględna od względnej? Podaj przykład każdej.",
+              "referenceAnswer": "Ścieżka bezwzględna zaczyna się od katalogu głównego `/` (np. `/var/log/syslog`) i wskazuje to samo miejsce niezależnie od bieżącego katalogu. Ścieżka względna jest interpretowana względem bieżącego katalogu roboczego (np. `../logs` albo `docs/readme.md`).",
+              "rubric": "Pełna ocena: bezwzględna zaczyna się od `/`, względna zależy od bieżącego katalogu, po jednym poprawnym przykładzie."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Uprawnienia plików",
+        "description": "Odczyt, zapis i wykonywanie; zapis symboliczny i ósemkowy; właściciel pliku.",
+        "sourceRef": "man 1 chmod, man 1 chown",
+        "items": [
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Polecenie `chmod {{gap}} skrypt.sh` ustawia uprawnienia `rwxr-xr-x`.",
+              "answers": [
+                "755",
+                "0755",
+                "u=rwx,go=rx",
+                "u=rwx,g=rx,o=rx"
+              ],
+              "hint": "Zapis ósemkowy: r=4, w=2, x=1."
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Co oznacza zapis uprawnień `-rw-r--r--`?",
+              "back": "Zwykły plik; właściciel może czytać i zapisywać, grupa i pozostali tylko czytać (ósemkowo 644)."
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Jak zmienić właściciela pliku `raport.txt` na użytkownika `anna` i grupę `dev`?",
+              "back": "`chown anna:dev raport.txt` (zwykle wymaga `sudo`)."
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Co oznacza uprawnienie wykonywania (`x`) dla katalogu?",
+              "referenceAnswer": "Pozwala wejść do katalogu (`cd`) i uzyskać dostęp do jego zawartości po nazwie, np. otworzyć plik, którego nazwę znasz. Bez `x` nie da się otworzyć plików w katalogu, nawet mając do nich uprawnienia. Samo wylistowanie nazw plików wymaga prawa odczytu (`r`).",
+              "rubric": "Kluczowe: `x` na katalogu = przechodzenie/dostęp do zawartości; odróżnienie od `r` (listowanie)."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Procesy",
+        "description": "Podgląd uruchomionych procesów, sygnały i praca w tle.",
+        "sourceRef": "man 1 ps, man 1 kill, man 7 signal",
+        "items": [
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Jak wyświetlić wszystkie procesy uruchomione w systemie?",
+              "back": "`ps aux` (lub `ps -ef`); podgląd na żywo: `top` albo `htop`."
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "`kill {{gap}} 1234` wysyła do procesu 1234 sygnał SIGKILL, którego nie można przechwycić.",
+              "answers": [
+                "-9",
+                "-KILL",
+                "-SIGKILL",
+                "-s KILL",
+                "-s SIGKILL",
+                "-s 9"
+              ]
+            }
+          },
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "Dopisanie znaku `{{gap}}` na końcu polecenia uruchamia je w tle.",
+              "answers": [
+                "&"
+              ]
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Czym różni się sygnał SIGTERM od SIGKILL?",
+              "referenceAnswer": "SIGTERM (15, domyślny sygnał polecenia `kill`) prosi proces o zakończenie: proces może go przechwycić, posprzątać (zamknąć pliki, zapisać stan) albo zignorować. SIGKILL (9) kończy proces natychmiast na poziomie jądra; nie można go przechwycić ani zignorować, więc proces nie ma szansy posprzątać.",
+              "rubric": "Pełna ocena: SIGTERM można obsłużyć/zignorować, SIGKILL nie; SIGTERM jest domyślny."
+            }
+          }
+        ]
+      },
+      {
+        "title": "Wyszukiwanie i przetwarzanie tekstu",
+        "description": "grep, find, tail i łączenie poleceń potokami.",
+        "sourceRef": "man 1 grep, man 1 find, man 1 tail",
+        "items": [
+          {
+            "block": "core/cloze",
+            "content": {
+              "text": "`grep {{gap}} \"TODO\" src/` przeszukuje rekurencyjnie wszystkie pliki w katalogu `src`.",
+              "answers": [
+                "-r",
+                "-R",
+                "--recursive",
+                "--dereference-recursive"
+              ]
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Jak znaleźć (rekurencyjnie, od bieżącego katalogu) wszystkie pliki z rozszerzeniem `.log`?",
+              "back": "`find . -type f -name \"*.log\"`"
+            }
+          },
+          {
+            "block": "core/flashcard",
+            "content": {
+              "front": "Jak śledzić na bieżąco nowe linie dopisywane do pliku `app.log`?",
+              "back": "`tail -f app.log`"
+            }
+          },
+          {
+            "block": "core/short-answer",
+            "content": {
+              "question": "Co robi potok `sort access.log | uniq -c | sort -rn | head`?",
+              "referenceAnswer": "Sortuje linie pliku, żeby identyczne linie były obok siebie; `uniq -c` zlicza kolejne powtórzenia (działa tylko na sąsiednich liniach, stąd wcześniejsze `sort`); `sort -rn` sortuje wynik malejąco według liczby wystąpień; `head` pokazuje 10 pierwszych linii. Efekt: 10 najczęściej powtarzających się linii z liczbą wystąpień.",
+              "rubric": "Musi paść: zliczanie powtórzeń, sortowanie malejąco po liczbie, top 10; plus za wyjaśnienie, po co pierwsze `sort`."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "trust": "official"
+}
