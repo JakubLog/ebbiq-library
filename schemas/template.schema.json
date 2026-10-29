@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "locale": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 10
+    },
+    "tags": {
+      "maxItems": 10,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 30
+      }
+    },
+    "workspace": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "theme": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+        },
+        "pattern": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+        },
+        "scheduler": {
+          "type": "object",
+          "properties": {
+            "block": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+            },
+            "dailyLimit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500
+            },
+            "desiredRetention": {
+              "type": "number",
+              "minimum": 0.7,
+              "maximum": 0.99
+            }
+          },
+          "required": [
+            "block",
+            "dailyLimit",
+            "desiredRetention"
+          ],
+          "additionalProperties": false
+        },
+        "exercises": {
+          "minItems": 1,
+          "maxItems": 20,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "block": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+              },
+              "weight": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "block",
+              "weight"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "reminders": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "preferredHour": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 23
+            }
+          },
+          "required": [
+            "enabled",
+            "preferredHour"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "goal",
+        "theme",
+        "pattern",
+        "scheduler",
+        "exercises",
+        "reminders"
+      ],
+      "additionalProperties": false
+    },
+    "requires": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "block": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^\\^?\\d+\\.\\d+\\.\\d+$"
+          }
+        },
+        "required": [
+          "block",
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "starter": {
+      "type": "object",
+      "properties": {
+        "topics": {
+          "maxItems": 30,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "description": {
+                "type": "string",
+                "maxLength": 2000
+              },
+              "sourceRef": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "items": {
+                "maxItems": 50,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "block": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+                    },
+                    "content": {},
+                    "sourceRef": {
+                      "type": "string",
+                      "maxLength": 500
+                    }
+                  },
+                  "required": [
+                    "block",
+                    "content"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "title",
+              "items"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "topics"
+      ],
+      "additionalProperties": false
+    },
+    "trust": {
+      "type": "string",
+      "enum": [
+        "official",
+        "community"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "title",
+    "description",
+    "locale",
+    "workspace",
+    "requires",
+    "trust"
+  ],
+  "additionalProperties": false
+}

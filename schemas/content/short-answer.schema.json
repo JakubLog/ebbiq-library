@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "referenceAnswer": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "rubric": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    }
+  },
+  "required": [
+    "question",
+    "referenceAnswer"
+  ],
+  "additionalProperties": false
+}

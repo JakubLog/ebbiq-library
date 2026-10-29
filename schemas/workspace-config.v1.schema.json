@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "number",
+      "const": 1
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "theme": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+    },
+    "pattern": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+    },
+    "scheduler": {
+      "type": "object",
+      "properties": {
+        "block": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+        },
+        "dailyLimit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 500
+        },
+        "desiredRetention": {
+          "type": "number",
+          "minimum": 0.7,
+          "maximum": 0.99
+        }
+      },
+      "required": [
+        "block",
+        "dailyLimit",
+        "desiredRetention"
+      ],
+      "additionalProperties": false
+    },
+    "exercises": {
+      "minItems": 1,
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "block": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$"
+          },
+          "weight": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "block",
+          "weight"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "reminders": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "preferredHour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23
+        }
+      },
+      "required": [
+        "enabled",
+        "preferredHour"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "goal",
+    "theme",
+    "pattern",
+    "scheduler",
+    "exercises",
+    "reminders"
+  ],
+  "additionalProperties": false
+}
