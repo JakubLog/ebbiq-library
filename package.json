@@ -1,0 +1,19 @@
+{
+  "name": "ebbiq-library",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Block manifests, content schemas and learning templates for the Ebbiq learning app.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1"
+  }
+}
