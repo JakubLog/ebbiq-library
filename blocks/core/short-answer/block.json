@@ -1,0 +1,10 @@
+{
+  "id": "core/short-answer",
+  "version": "1.0.0",
+  "kind": "exercise",
+  "title": "Krótka odpowiedź",
+  "description": "Odpowiedz własnymi słowami. Model AI porównuje odpowiedź z odpowiedzią wzorcową, daje krótką informację zwrotną i proponuje ocenę. Wymaga połączenia z internetem.",
+  "contentSchema": "./content.schema.json",
+  "grading": "ai",
+  "trust": "official"
+}

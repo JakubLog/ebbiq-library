@@ -1,0 +1,10 @@
+{
+  "id": "core/cloze",
+  "version": "1.0.0",
+  "kind": "exercise",
+  "title": "Luka do uzupełnienia",
+  "description": "Zdanie z jedną luką. Wpisz brakujące słowo lub wyrażenie; odpowiedź jest sprawdzana dokładnie, bez względu na wielkość liter i nadmiarowe spacje. Akceptowany jest każdy z podanych wariantów.",
+  "contentSchema": "./content.schema.json",
+  "grading": "exact",
+  "trust": "official"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "core/flashcard",
+  "version": "1.0.0",
+  "kind": "exercise",
+  "title": "Fiszka",
+  "description": "Pytanie z przodu, odpowiedź z tyłu. Spróbuj przypomnieć sobie odpowiedź, odkryj ją i sam oceń, jak dobrze ją pamiętałeś.",
+  "contentSchema": "./content.schema.json",
+  "grading": "self",
+  "trust": "official"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "core/default",
+  "version": "1.0.0",
+  "kind": "theme",
+  "title": "Motyw domyślny",
+  "description": "Czytelny, spokojny motyw w wersji jasnej i ciemnej.",
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "trust": "official"
+}

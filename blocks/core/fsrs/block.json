@@ -1,0 +1,8 @@
+{
+  "id": "core/fsrs",
+  "version": "1.0.0",
+  "kind": "scheduler",
+  "title": "Harmonogram FSRS",
+  "description": "Planuje powtórki według krzywej zapominania (algorytm FSRS). Po każdej odpowiedzi oceniasz ją w czterech stopniach: Again, Hard, Good, Easy; na tej podstawie wyznaczany jest termin następnej powtórki.",
+  "trust": "official"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "core/active-recall",
+  "version": "1.0.0",
+  "kind": "pattern",
+  "title": "Aktywne przypominanie",
+  "description": "Najpierw próbujesz samodzielnie przywołać odpowiedź z pamięci, dopiero potem ją widzisz. Jedno ćwiczenie na ekran, krótkie sesje.",
+  "trust": "official"
+}
