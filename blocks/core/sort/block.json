@@ -1,0 +1,9 @@
+{
+  "id": "core/sort",
+  "version": "1.0.0",
+  "kind": "game",
+  "title": "Sortowanie",
+  "description": "Gra: rozłóż od 4 do 16 kart do 2–4 nazwanych grup. Dobra na rozróżnianie podobnych pojęć i kategorii. Wynik nie wpływa na powtórki.",
+  "contentSchema": "./content.schema.json",
+  "trust": "official"
+}

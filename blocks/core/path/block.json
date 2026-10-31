@@ -1,0 +1,8 @@
+{
+  "id": "core/path",
+  "version": "1.0.0",
+  "kind": "pattern",
+  "title": "Ścieżka lekcji",
+  "description": "Nauka jak w Duolingo: tematy to rozdziały na ścieżce, każdy podzielony na krótkie lekcje odblokowywane po kolei. Za ćwiczenia zbierasz XP i budujesz serię dni.",
+  "trust": "official"
+}

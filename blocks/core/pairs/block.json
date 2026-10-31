@@ -1,0 +1,9 @@
+{
+  "id": "core/pairs",
+  "version": "1.0.0",
+  "kind": "game",
+  "title": "Pary na czas",
+  "description": "Gra: połącz w pary pojęcia z ich definicjami (od 3 do 10 par), jak najszybciej i bez pomyłek. Dobra na mylące się pojęcia. Wynik nie wpływa na powtórki.",
+  "contentSchema": "./content.schema.json",
+  "trust": "official"
+}

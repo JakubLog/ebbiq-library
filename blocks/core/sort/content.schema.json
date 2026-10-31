@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "buckets": {
+      "minItems": 2,
+      "maxItems": 4,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "cards": {
+      "minItems": 4,
+      "maxItems": 16,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "bucket": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "itemId": {
+            "description": "Optional: id of an active item of the same subject that this element practises (e.g. from add_items).",
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "text",
+          "bucket"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "buckets",
+    "cards"
+  ],
+  "additionalProperties": false
+}

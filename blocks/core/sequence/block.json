@@ -1,0 +1,9 @@
+{
+  "id": "core/sequence",
+  "version": "1.0.0",
+  "kind": "game",
+  "title": "Kolejność",
+  "description": "Gra: ułóż od 3 do 10 kroków we właściwej kolejności. Dobra na procedury, procesy i chronologię. Wynik nie wpływa na powtórki.",
+  "contentSchema": "./content.schema.json",
+  "trust": "official"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "core/modes",
+  "version": "1.0.0",
+  "kind": "pattern",
+  "title": "Tryby nauki",
+  "description": "Ten sam materiał na kilka sposobów, jak w Quizlecie: Nauka z powtórkami rozłożonymi w czasie, Test z wynikiem w procentach i Dopasowanie par na czas.",
+  "trust": "official"
+}

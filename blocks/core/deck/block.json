@@ -1,0 +1,8 @@
+{
+  "id": "core/deck",
+  "version": "1.0.0",
+  "kind": "pattern",
+  "title": "Talia fiszek",
+  "description": "Czysta powtórka rozłożona w czasie, jak w Anki: liczniki nowych, uczonych i do powtórki, jedna karta na ekran, szybka ocena klawiszami 1–4. Bez punktów i odznak.",
+  "trust": "official"
+}
