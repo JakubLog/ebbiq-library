@@ -1,0 +1,257 @@
+{
+  "id": "core/briefcase",
+  "version": "1.0.0",
+  "title": "Teczka",
+  "description": "work, career, management, business",
+  "keywords": [
+    "praca ",
+    "pracy ",
+    "karier",
+    "zarzadz",
+    "biznes",
+    "firm",
+    "rekrutac",
+    "career",
+    "business",
+    "management",
+    "interview"
+  ],
+  "priority": 66,
+  "trust": "official",
+  "ops": [
+    {
+      "op": "box",
+      "at": [
+        -30,
+        1,
+        0
+      ],
+      "size": [
+        4,
+        4,
+        2
+      ],
+      "material": "dark"
+    },
+    {
+      "op": "box",
+      "at": [
+        26,
+        1,
+        0
+      ],
+      "size": [
+        4,
+        4,
+        2
+      ],
+      "material": "dark"
+    },
+    {
+      "op": "roundBox",
+      "at": [
+        -38,
+        -10,
+        2
+      ],
+      "size": [
+        76,
+        18,
+        34
+      ],
+      "r": 4
+    },
+    {
+      "op": "roundBox",
+      "at": [
+        -38,
+        -10,
+        36
+      ],
+      "size": [
+        76,
+        18,
+        14
+      ],
+      "r": 4,
+      "inset": 2
+    },
+    {
+      "op": "box",
+      "at": [
+        -15,
+        -3,
+        50
+      ],
+      "size": [
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "op": "box",
+      "at": [
+        10,
+        -3,
+        50
+      ],
+      "size": [
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "op": "part",
+      "motion": {
+        "kind": "bob",
+        "height": 4
+      },
+      "ops": [
+        {
+          "op": "box",
+          "at": [
+            -15,
+            -3,
+            50
+          ],
+          "size": [
+            5,
+            4,
+            7
+          ]
+        },
+        {
+          "op": "box",
+          "at": [
+            10,
+            -3,
+            50
+          ],
+          "size": [
+            5,
+            4,
+            7
+          ]
+        },
+        {
+          "op": "box",
+          "at": [
+            -15,
+            -3,
+            57
+          ],
+          "size": [
+            30,
+            4,
+            4.5
+          ]
+        }
+      ]
+    },
+    {
+      "op": "box",
+      "at": [
+        -26,
+        8,
+        31
+      ],
+      "size": [
+        8,
+        1.6,
+        9
+      ],
+      "material": "accent"
+    },
+    {
+      "op": "dot",
+      "at": [
+        -22,
+        9.6,
+        34
+      ],
+      "r": 0.8
+    },
+    {
+      "op": "box",
+      "at": [
+        18,
+        8,
+        31
+      ],
+      "size": [
+        8,
+        1.6,
+        9
+      ],
+      "material": "accent"
+    },
+    {
+      "op": "dot",
+      "at": [
+        22,
+        9.6,
+        34
+      ],
+      "r": 0.8
+    },
+    {
+      "op": "dot",
+      "at": [
+        0,
+        8,
+        42
+      ],
+      "r": 1.6
+    },
+    {
+      "op": "line",
+      "points": [
+        [
+          -22.8,
+          8,
+          4.72
+        ],
+        [
+          -22.8,
+          8,
+          28.52
+        ]
+      ],
+      "tone": "detail"
+    },
+    {
+      "op": "line",
+      "points": [
+        [
+          22.8,
+          8,
+          4.72
+        ],
+        [
+          22.8,
+          8,
+          28.52
+        ]
+      ],
+      "tone": "detail"
+    },
+    {
+      "op": "line",
+      "points": [
+        [
+          -34.96,
+          8,
+          6.08
+        ],
+        [
+          34.96,
+          8,
+          6.08
+        ]
+      ],
+      "tone": "detail"
+    }
+  ]
+}

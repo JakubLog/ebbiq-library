@@ -1,0 +1,262 @@
+{
+  "id": "core/atom",
+  "version": "1.0.0",
+  "title": "Atom",
+  "description": "physics, astronomy",
+  "keywords": [
+    "fizyk",
+    "astronom",
+    "kosmos",
+    "physic",
+    "space "
+  ],
+  "priority": 64,
+  "trust": "official",
+  "ops": [
+    {
+      "op": "cylinder",
+      "center": [
+        0,
+        0
+      ],
+      "z": 0,
+      "r": 17,
+      "h": 4,
+      "inset": 2
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        0,
+        0
+      ],
+      "z": 4,
+      "r": 5,
+      "h": 2.5
+    },
+    {
+      "op": "ring",
+      "center": [
+        0,
+        0,
+        50
+      ],
+      "r": 31,
+      "normal": [
+        -0.21,
+        -0.21,
+        0.95
+      ],
+      "tone": "ink"
+    },
+    {
+      "op": "ring",
+      "center": [
+        0,
+        0,
+        50
+      ],
+      "r": 31,
+      "normal": [
+        0.95,
+        -0.21,
+        -0.21
+      ],
+      "tone": "ink"
+    },
+    {
+      "op": "ring",
+      "center": [
+        0,
+        0,
+        50
+      ],
+      "r": 31,
+      "normal": [
+        -0.21,
+        0.95,
+        -0.21
+      ],
+      "tone": "ink"
+    },
+    {
+      "op": "sphere",
+      "center": [
+        -8.86,
+        -14.31,
+        23.97
+      ],
+      "r": 3.4,
+      "material": "accent"
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        0,
+        0
+      ],
+      "z": 6.5,
+      "r": 1.8,
+      "h": 36
+    },
+    {
+      "op": "part",
+      "motion": {
+        "kind": "bob",
+        "height": 4
+      },
+      "ops": [
+        {
+          "op": "sphere",
+          "center": [
+            -6.5,
+            0,
+            50
+          ],
+          "r": 7,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            0,
+            -6.5,
+            50
+          ],
+          "r": 7,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            0,
+            0,
+            43.5
+          ],
+          "r": 7,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            0,
+            0,
+            50
+          ],
+          "r": 7,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            6.5,
+            0,
+            50
+          ],
+          "r": 7,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            0,
+            6.5,
+            50
+          ],
+          "r": 7,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            0,
+            0,
+            56.5
+          ],
+          "r": 7,
+          "material": "paper"
+        }
+      ]
+    },
+    {
+      "op": "ring",
+      "center": [
+        0,
+        0,
+        50
+      ],
+      "r": 31,
+      "normal": [
+        -0.21,
+        -0.21,
+        0.95
+      ],
+      "tone": "ink",
+      "sphere": [
+        0,
+        0,
+        50
+      ]
+    },
+    {
+      "op": "ring",
+      "center": [
+        0,
+        0,
+        50
+      ],
+      "r": 31,
+      "normal": [
+        0.95,
+        -0.21,
+        -0.21
+      ],
+      "tone": "ink",
+      "sphere": [
+        0,
+        0,
+        50
+      ]
+    },
+    {
+      "op": "ring",
+      "center": [
+        0,
+        0,
+        50
+      ],
+      "r": 31,
+      "normal": [
+        -0.21,
+        0.95,
+        -0.21
+      ],
+      "tone": "ink",
+      "sphere": [
+        0,
+        0,
+        50
+      ]
+    },
+    {
+      "op": "sphere",
+      "center": [
+        10.39,
+        27.96,
+        58.43
+      ],
+      "r": 3.4,
+      "material": "accent"
+    },
+    {
+      "op": "sphere",
+      "center": [
+        2.26,
+        7.11,
+        80.09
+      ],
+      "r": 3.4,
+      "material": "accent"
+    }
+  ]
+}

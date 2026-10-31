@@ -1,0 +1,681 @@
+{
+  "id": "core/dna",
+  "version": "1.0.0",
+  "title": "DNA",
+  "description": "biology, genetics",
+  "keywords": [
+    "biolog",
+    "genet",
+    "komork",
+    "ewolucj",
+    "cell "
+  ],
+  "priority": 62,
+  "trust": "official",
+  "ops": [
+    {
+      "op": "cylinder",
+      "center": [
+        0,
+        0
+      ],
+      "z": 0,
+      "r": 22,
+      "h": 5,
+      "inset": 2.5
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        0,
+        0
+      ],
+      "z": 5,
+      "r": 5,
+      "h": 2
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        0,
+        0
+      ],
+      "z": 7,
+      "r": 1.8,
+      "h": 5
+    },
+    {
+      "op": "part",
+      "motion": {
+        "kind": "bob",
+        "height": 4
+      },
+      "ops": [
+        {
+          "op": "sphere",
+          "center": [
+            -17.33,
+            -11.86,
+            13
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -13.67,
+            -15.94,
+            16.2
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -9.08,
+            -18.93,
+            19.4
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -3.87,
+            -20.64,
+            22.6
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            1.6,
+            -20.94,
+            25.8
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            16.6,
+            12.93,
+            11.7
+          ],
+          "a": [
+            -34.66,
+            -23.71,
+            0
+          ],
+          "b": [
+            1.47,
+            -2.15,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            6.97,
+            -19.81,
+            29
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -19.81,
+            -6.97,
+            48.2
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -17.33,
+            -11.86,
+            51.4
+          ],
+          "r": 3.8,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -20.94,
+            -1.6,
+            45
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            2.59,
+            20.88,
+            21.3
+          ],
+          "a": [
+            -7.74,
+            -41.28,
+            0
+          ],
+          "b": [
+            2.56,
+            -0.48,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -13.67,
+            -15.94,
+            54.6
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -20.64,
+            3.87,
+            41.8
+          ],
+          "r": 3.8,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            11.86,
+            -17.33,
+            32.2
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -18.93,
+            9.08,
+            38.6
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -9.08,
+            -18.93,
+            57.8
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            -12.93,
+            16.6,
+            30.9
+          ],
+          "a": [
+            23.71,
+            -34.66,
+            0
+          ],
+          "b": [
+            2.15,
+            1.47,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -15.94,
+            13.67,
+            35.4
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -3.87,
+            -20.64,
+            61
+          ],
+          "r": 3.8,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            15.94,
+            -13.67,
+            35.4
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -11.86,
+            17.33,
+            32.2
+          ],
+          "r": 3.8,
+          "material": "paper"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            -20.88,
+            2.59,
+            40.5
+          ],
+          "a": [
+            41.28,
+            -7.74,
+            0
+          ],
+          "b": [
+            0.48,
+            2.56,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -6.97,
+            19.81,
+            29
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            17.33,
+            11.86,
+            13
+          ],
+          "r": 3.8,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            1.6,
+            -20.94,
+            64.2
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -1.6,
+            20.94,
+            25.8
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            13.67,
+            15.94,
+            16.2
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            3.87,
+            20.64,
+            22.6
+          ],
+          "r": 3.8,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            9.08,
+            18.93,
+            19.4
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            18.93,
+            -9.08,
+            38.6
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            -16.6,
+            -12.93,
+            50.1
+          ],
+          "a": [
+            34.66,
+            23.71,
+            0
+          ],
+          "b": [
+            -1.47,
+            2.15,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            6.97,
+            -19.81,
+            67.4
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            20.64,
+            -3.87,
+            41.8
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            -2.59,
+            -20.88,
+            59.7
+          ],
+          "a": [
+            7.74,
+            41.28,
+            0
+          ],
+          "b": [
+            -2.56,
+            0.48,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -20.64,
+            3.87,
+            80.2
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            11.86,
+            -17.33,
+            70.6
+          ],
+          "r": 3.8,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -18.93,
+            9.08,
+            77
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            20.94,
+            1.6,
+            45
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            12.93,
+            -16.6,
+            69.3
+          ],
+          "a": [
+            -23.71,
+            34.66,
+            0
+          ],
+          "b": [
+            -2.15,
+            -1.47,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -15.94,
+            13.67,
+            73.8
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            19.81,
+            6.97,
+            48.2
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            15.94,
+            -13.67,
+            73.8
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -11.86,
+            17.33,
+            70.6
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "solid",
+          "origin": [
+            20.88,
+            -2.59,
+            78.9
+          ],
+          "a": [
+            -41.28,
+            7.74,
+            0
+          ],
+          "b": [
+            -0.48,
+            -2.56,
+            0
+          ],
+          "c": [
+            0,
+            0,
+            2.6
+          ]
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -6.97,
+            19.81,
+            67.4
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            17.33,
+            11.86,
+            51.4
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            -1.6,
+            20.94,
+            64.2
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            13.67,
+            15.94,
+            54.6
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            3.87,
+            20.64,
+            61
+          ],
+          "r": 3.8,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            9.08,
+            18.93,
+            57.8
+          ],
+          "r": 2.9,
+          "material": "accent"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            18.93,
+            -9.08,
+            77
+          ],
+          "r": 2.9,
+          "material": "paper"
+        },
+        {
+          "op": "sphere",
+          "center": [
+            20.64,
+            -3.87,
+            80.2
+          ],
+          "r": 3.8,
+          "material": "paper"
+        }
+      ]
+    }
+  ]
+}

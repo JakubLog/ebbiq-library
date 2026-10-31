@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Validates the library: every block.json / template.json against the JSON Schemas in `schemas/`
+ * Validates the library: every block.json / template.json / icon.json against the JSON Schemas in `schemas/`
  * (exported from the Zod source of truth in the app monorepo) plus the cross-file rules that
- * JSON Schema cannot express (the Zod refinements, references between templates and blocks).
+ * JSON Schema cannot express (the Zod refinements, references between templates and blocks, icon limits).
  *
  * Usage: node scripts/validate.mjs [libraryDir]   (default: the directory above this script)
  * Exit code: 0 when valid, 1 when any error was found (all errors are listed).
@@ -22,6 +22,13 @@ const fail = (file, path, message) => errors.push(`${rel(file)}${path ? ` ${path
 const CLOZE_GAP = "{{gap}}";
 const MAX_ITEM_CONTENT_BYTES = 8 * 1024;
 const CONFIG_KINDS = { theme: "theme", pattern: "pattern", scheduler: "scheduler", exercise: "exercise" };
+// ICON_LIMITS, OFFICIAL_ICON_NAMESPACE and DEFAULT_ICON_ID in @ebbiq/schemas.
+const ICON_MAX_OPS = 400;
+const ICON_MAX_PARTS = 3;
+const ICON_MAX_BYTES = 64 * 1024;
+const ICON_MAX_COMMUNITY_PRIORITY = 50;
+const OFFICIAL_ICON_NAMESPACE = "core";
+const DEFAULT_ICON_ID = "core/book";
 
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 addFormats(ajv);
@@ -124,6 +131,7 @@ const schemasDir = join(root, "schemas");
 const validateBlock = compileSchema(join(schemasDir, "block.schema.json"));
 const validateTemplate = compileSchema(join(schemasDir, "template.schema.json"));
 const validateWorkspace = compileSchema(join(schemasDir, "workspace-config.v1.schema.json"));
+const validateIcon = compileSchema(join(schemasDir, "icon.schema.json"));
 
 // ---------------------------------------------------------------------------------------------
 // Blocks
@@ -149,6 +157,7 @@ for (const { file, dirId, dir } of listManifests(join(root, "blocks"), "block.js
     if (!m.contentSchema) fail(file, "/contentSchema", "exercise blocks require contentSchema");
     if (!m.grading) fail(file, "/grading", "exercise blocks require grading");
   }
+  if (m.kind === "game" && !m.contentSchema) fail(file, "/contentSchema", "game blocks require contentSchema");
   if (m.kind === "theme" && !m.modes) fail(file, "/modes", "theme blocks require modes");
   if (Array.isArray(m.modes) && new Set(m.modes).size !== m.modes.length) fail(file, "/modes", "modes must be unique");
 
@@ -266,10 +275,54 @@ for (const { file, dirId } of listManifests(join(root, "templates"), "template.j
 }
 
 // ---------------------------------------------------------------------------------------------
+// Icons
+
+const icons = new Map();
+
+for (const { file, dirId } of listManifests(join(root, "icons"), "icon.json")) {
+  const icon = readJson(file);
+  if (icon === undefined) continue;
+  checkSchema(validateIcon, icon, file);
+  if (!icon || typeof icon !== "object") continue;
+
+  if (icon.id !== dirId) fail(file, "/id", `"${icon.id}" does not match directory path "${dirId}"`);
+  if (icons.has(icon.id)) {
+    fail(file, "/id", `duplicate icon id "${icon.id}" (also in ${rel(icons.get(icon.id))})`);
+    continue;
+  }
+  icons.set(icon.id, file);
+  checkBlankStrings(icon.title, file, "/title");
+  checkBlankStrings(icon.description, file, "/description");
+
+  const ops = Array.isArray(icon.ops) ? icon.ops : [];
+  const parts = ops.filter((op) => op?.op === "part");
+  if (parts.length > ICON_MAX_PARTS) fail(file, "/ops", `at most ${ICON_MAX_PARTS} moving parts (found ${parts.length})`);
+  const total = ops.reduce((sum, op) => sum + (op?.op === "part" && Array.isArray(op.ops) ? op.ops.length : 1), 0);
+  if (total > ICON_MAX_OPS) fail(file, "/ops", `at most ${ICON_MAX_OPS} draw operations in total (found ${total})`);
+  const bytes = Buffer.byteLength(JSON.stringify(icon));
+  if (bytes > ICON_MAX_BYTES) fail(file, "", `at most ${ICON_MAX_BYTES} bytes as compact JSON (found ${bytes})`);
+  const official = typeof icon.id === "string" && icon.id.startsWith(`${OFFICIAL_ICON_NAMESPACE}/`);
+  if (official !== (icon.trust === "official")) {
+    fail(file, "/trust", `icons in "${OFFICIAL_ICON_NAMESPACE}/" are "official", icons in other namespaces "community"`);
+  }
+  if (icon.trust === "community" && (icon.priority ?? 0) > ICON_MAX_COMMUNITY_PRIORITY) {
+    fail(file, "/priority", `community icons have priority at most ${ICON_MAX_COMMUNITY_PRIORITY}`);
+  }
+  for (const [i, keyword] of (Array.isArray(icon.keywords) ? icon.keywords : []).entries()) {
+    if (typeof keyword === "string" && !keyword.endsWith(" ") && keyword.length < 3) {
+      fail(file, `/keywords/${i}`, `"${keyword}": keywords shorter than 3 characters must end with a space`);
+    }
+  }
+}
+if (!icons.has(DEFAULT_ICON_ID)) fail(join(root, "icons"), "", `the default icon "${DEFAULT_ICON_ID}" is missing`);
+
+// ---------------------------------------------------------------------------------------------
 
 if (errors.length > 0) {
   console.error(`Library validation failed with ${errors.length} error(s):`);
   for (const e of errors) console.error(`  - ${e}`);
   process.exit(1);
 }
-console.log(`Library OK: ${blocks.size} blocks, ${templates.size} templates, ${starterItems} starter items.`);
+console.log(
+  `Library OK: ${blocks.size} blocks, ${templates.size} templates, ${starterItems} starter items, ${icons.size} icons.`,
+);

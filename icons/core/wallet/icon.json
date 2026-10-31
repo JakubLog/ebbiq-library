@@ -1,0 +1,299 @@
+{
+  "id": "core/wallet",
+  "version": "1.0.0",
+  "title": "Portfel",
+  "description": "personal finance, budgeting, investing",
+  "keywords": [
+    "finans",
+    "budzet",
+    "oszczedz",
+    "inwest",
+    "pieniadz",
+    "finance",
+    "budget",
+    "invest",
+    "money",
+    "saving"
+  ],
+  "priority": 68,
+  "trust": "official",
+  "ops": [
+    {
+      "op": "roundBox",
+      "at": [
+        -30,
+        -24,
+        0
+      ],
+      "size": [
+        52,
+        16,
+        36
+      ],
+      "r": 4,
+      "material": "accent"
+    },
+    {
+      "op": "box",
+      "at": [
+        -26,
+        -21,
+        36
+      ],
+      "size": [
+        40,
+        1.4,
+        7
+      ],
+      "material": "paper"
+    },
+    {
+      "op": "part",
+      "motion": {
+        "kind": "slide",
+        "by": [
+          0,
+          0,
+          7
+        ]
+      },
+      "ops": [
+        {
+          "op": "box",
+          "at": [
+            -26,
+            -21,
+            36
+          ],
+          "size": [
+            40,
+            1.4,
+            11
+          ],
+          "material": "paper"
+        },
+        {
+          "op": "ring",
+          "center": [
+            -6,
+            -19.6,
+            42
+          ],
+          "r": 3,
+          "normal": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "op": "box",
+      "at": [
+        -22,
+        -17,
+        36
+      ],
+      "size": [
+        26,
+        1.4,
+        17
+      ],
+      "material": "paper"
+    },
+    {
+      "op": "box",
+      "at": [
+        -18,
+        -13,
+        36
+      ],
+      "size": [
+        26,
+        1.4,
+        13
+      ]
+    },
+    {
+      "op": "line",
+      "points": [
+        [
+          -15,
+          -11.6,
+          45
+        ],
+        [
+          -6,
+          -11.6,
+          45
+        ]
+      ],
+      "tone": "detail"
+    },
+    {
+      "op": "line",
+      "points": [
+        [
+          -26.88,
+          -8,
+          2.88
+        ],
+        [
+          18.88,
+          -8,
+          2.88
+        ],
+        [
+          18.88,
+          -8,
+          32.4
+        ],
+        [
+          -26.88,
+          -8,
+          32.4
+        ]
+      ],
+      "tone": "detail",
+      "closed": true
+    },
+    {
+      "op": "box",
+      "at": [
+        8,
+        -24.6,
+        36
+      ],
+      "size": [
+        10,
+        17.2,
+        1.2
+      ],
+      "material": "dark"
+    },
+    {
+      "op": "box",
+      "at": [
+        8,
+        -8,
+        19
+      ],
+      "size": [
+        10,
+        1.2,
+        18.2
+      ],
+      "material": "dark"
+    },
+    {
+      "op": "dot",
+      "at": [
+        13,
+        -6.8,
+        25
+      ],
+      "r": 1.8,
+      "tone": "light"
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        30,
+        12
+      ],
+      "z": 0,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        30,
+        12
+      ],
+      "z": 2.6,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        30,
+        12
+      ],
+      "z": 5.2,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        30,
+        12
+      ],
+      "z": 7.8,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        30,
+        12
+      ],
+      "z": 10.4,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        30,
+        12
+      ],
+      "z": 13,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        2,
+        28
+      ],
+      "z": 0,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        2,
+        28
+      ],
+      "z": 2.6,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    },
+    {
+      "op": "cylinder",
+      "center": [
+        2,
+        28
+      ],
+      "z": 5.2,
+      "r": 9,
+      "h": 2.6,
+      "inset": 1.6
+    }
+  ]
+}
